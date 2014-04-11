@@ -29,6 +29,7 @@ void main()
 	messageDispatcher.close(STUFF_TO_TELL);
 	messageDispatcher.close(STUFF_TO_DO);
 
+	// TODO: throws error, but should print warning instead
 	messageDispatcher.send(STUFF_HAPPENING, " message 5");
 }
 
