@@ -1,4 +1,2 @@
 name: dotdotcommadot_messaging
-description: A simple messaging framework for Dart
-dependencies:
-  browser: any
+description: A simple messaging framework for Google Dart
