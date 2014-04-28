@@ -1,6 +1,6 @@
 part of dotdotcommadot_messaging;
 
-typedef void MessageHandlerFunction(dynamic data);
+typedef void MessageHandlerFunction({MessageDescriptor message});
 
 class MessageHandler
 {
@@ -30,6 +30,6 @@ class MessageHandler
 	
 	call(dynamic data)
 	{
-		Function.apply(handler, [data]);
+		handler(message: new MessageDescriptor(new Symbol(""), this, order, data));
 	}
 }

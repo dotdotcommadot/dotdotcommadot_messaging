@@ -33,38 +33,38 @@ void main()
 	messageDispatcher.send(STUFF_HAPPENING, " message 5");
 }
 
-void onFirstHappening(dynamic data)
+void onFirstHappening({MessageDescriptor message})
 {
-	print("Stuff Happening" + data.toString());
+	print("Stuff Happening" + message.data.toString());
 }
 
-void onSecondStuffHappening(dynamic data)
+void onSecondStuffHappening({MessageDescriptor message})
 {
-	print("Other Stuff Happening" + data.toString());
+	print("Other Stuff Happening" + message.data.toString());
 }
 
-void onStuffToTell(dynamic data)
+void onStuffToTell({MessageDescriptor message})
 {
 	print("Stuff To Tell");
 }
 
-void onOtherStuffToTell(dynamic data)
+void onOtherStuffToTell({MessageDescriptor message})
 {
-	print("Other Stuff To Tell" + data.toString());
+	print("Other Stuff To Tell" + message.data.toString());
 }
 
-void onFirstStuffToDo(dynamic data)
+void onFirstStuffToDo({MessageDescriptor message})
 {
-	print("First Stuff To Do" + data.toString());
+	print("First Stuff To Do" + message.data.toString());
 }
 
-void onSecondStuffToDo(dynamic data)
+void onSecondStuffToDo({MessageDescriptor message})
 {
-	print("Second Stuff To Do" + data.toString());
+	print("Second Stuff To Do" + message.data.toString());
 	messageDispatcher.cancel(STUFF_TO_DO);
 }
 
-void onCancelledStuffToDo(dynamic data)
+void onCancelledStuffToDo({MessageDescriptor message})
 {
-	print("Cancelled Stuff To Do" + data.toString());
+	print("Cancelled Stuff To Do" + message.data.toString());
 }
