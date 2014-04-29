@@ -28,10 +28,8 @@ class MessageDispatcher implements IMessageDispatcher
 	{
 		final MessageMapping messageMapping = _messageMappings[name];
 		
-		if (messageMapping == null)
-			throw new MessageError("No mapping found for " + name.toString());
-		
-		messageMapping.send(data);
+		if (messageMapping != null)
+			messageMapping.send(data);
 	}
 	
 	void addListener(Symbol name, MessageHandlerFunction handler, [int order = 0])
@@ -48,15 +46,20 @@ class MessageDispatcher implements IMessageDispatcher
 			_removeHandlerFromMapping(_messageMappings[name], handler);
 	}
 	
+	void removeAllListeners(Symbol name)
+	{
+		_messageMappings.remove(name);
+	}
+
+	bool hasListener(Symbol name)
+	{
+		return _messageMappings[name] != null;
+	}
+	
 	void cancel(Symbol name)
 	{
 		final MessageMapping messageMapping = _messageMappings[name];
 		messageMapping.cancel();
-	}
-	
-	void close(Symbol name)
-	{
-		_messageMappings.remove(name);
 	}
 	
   //-----------------------------------

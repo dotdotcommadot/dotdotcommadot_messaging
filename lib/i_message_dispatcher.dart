@@ -14,7 +14,9 @@ abstract class IMessageDispatcher
 	
 	void removeListener(Symbol name, Function handler);
 	
-	void cancel(Symbol name);
+	void removeAllListeners(Symbol name);
+	
+	bool hasListener(Symbol name);
 
-	void close(Symbol name);
+	void cancel(Symbol name);
 }

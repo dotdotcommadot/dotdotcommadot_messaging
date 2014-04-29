@@ -25,10 +25,14 @@ void main()
 	messageDispatcher.send(STUFF_TO_DO, " message 4");
 	messageDispatcher.send(STUFF_TO_DO, " message 5");
 	
-	messageDispatcher.close(STUFF_HAPPENING);
-	messageDispatcher.close(STUFF_TO_TELL);
-	messageDispatcher.close(STUFF_TO_DO);
+	messageDispatcher.removeAllListeners(STUFF_HAPPENING);
+	messageDispatcher.removeAllListeners(STUFF_TO_TELL);
+	messageDispatcher.removeAllListeners(STUFF_TO_DO);
 
+	messageDispatcher.send(STUFF_HAPPENING, " message 5");
+	
+	messageDispatcher.addListener(STUFF_HAPPENING, onFirstHappening, 1);
+	
 	messageDispatcher.send(STUFF_HAPPENING, " message 5");
 }
 
