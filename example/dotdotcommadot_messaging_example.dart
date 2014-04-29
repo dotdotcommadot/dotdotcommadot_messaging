@@ -36,38 +36,38 @@ void main()
 	messageDispatcher.send(STUFF_HAPPENING, " message 5");
 }
 
-void onFirstHappening({Message message})
+void onFirstHappening(Message message)
 {
 	print("Stuff Happening" + message.data.toString());
 }
 
-void onSecondStuffHappening({Message message})
+void onSecondStuffHappening(Message message)
 {
 	print("Other Stuff Happening" + message.data.toString());
 }
 
-void onStuffToTell({Message message})
+void onStuffToTell(Message message)
 {
 	print("Stuff To Tell");
 }
 
-void onOtherStuffToTell({Message message})
+void onOtherStuffToTell(Message message)
 {
 	print("Other Stuff To Tell" + message.data.toString());
 }
 
-void onFirstStuffToDo({Message message})
+void onFirstStuffToDo(Message message)
 {
 	print("First Stuff To Do" + message.data.toString());
 }
 
-void onSecondStuffToDo({Message message})
+void onSecondStuffToDo(Message message)
 {
 	print("Second Stuff To Do" + message.data.toString());
 	messageDispatcher.cancel(STUFF_TO_DO);
 }
 
-void onCancelledStuffToDo({Message message})
+void onCancelledStuffToDo(Message message)
 {
 	print("Cancelled Stuff To Do" + message.data.toString());
 }
