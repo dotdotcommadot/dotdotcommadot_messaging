@@ -1,6 +1,5 @@
 # dotdotcommadot Messaging
 
-[![Build Status](https://drone.io/github.com/dotdotcommadot/dart_robotlegs_di/status.png)](https://drone.io/github.com/dotdotcommadot/dart_robotlegs_di/latest)
 ###### Version: 0.0.1 -- alpha
 
 ## About
@@ -19,13 +18,13 @@ This framework brings a very simple API for doing just that.
 	IMessageDispatcher messageDispatcher = new MessageDispatcher();
 	
 	// Adding listeners
-	messageDispatcher.addListener(STUFF_HAPPENING, onFirstHappening);
+	messageDispatcher.addListener(STUFF_HAPPENING, onStuffHappening);
 	
 	// Dispatching the message with its data
 	messageDispatcher.send(STUFF_HAPPENING, " message 1");
 	
 	// the listening function
-	void onFirstHappening(Message message)
+	void onStuffHappening(Message message)
 	{
 		print("Stuff Happening" + message.data.toString()); // Prints: 'Stuff Happening message 1'
 	}
