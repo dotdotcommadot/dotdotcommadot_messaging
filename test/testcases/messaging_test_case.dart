@@ -7,7 +7,7 @@ messagingTestCase()
 	
 	setUp(() 
 	{
-		messageDispatcher = new MessageDispatcher();	
+		messageDispatcher = new CentralDispatcher();	
 	});
 	
 	tearDown(() 
