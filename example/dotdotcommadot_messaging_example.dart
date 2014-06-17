@@ -4,7 +4,7 @@ const Symbol STUFF_HAPPENING 	= const Symbol("stuffHappening");
 const Symbol STUFF_TO_TELL 		= const Symbol("stuffToTell");
 const Symbol STUFF_TO_DO 			= const Symbol("stuffToDo");
 
-IMessageDispatcher messageDispatcher = new CentralDispatcher();
+IMessageDispatcher messageDispatcher = new MessageDispatcher();
 
 void main()
 {

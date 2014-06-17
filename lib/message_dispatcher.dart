@@ -1,6 +1,6 @@
 part of dotdotcommadot_messaging;
 
-abstract class MessageDispatcher implements IMessageDispatcher
+class MessageDispatcher implements IMessageDispatcher
 {
   //-----------------------------------
   //
