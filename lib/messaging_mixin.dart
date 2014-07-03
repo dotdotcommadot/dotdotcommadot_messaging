@@ -1,35 +1,35 @@
 part of dotdotcommadot_messaging;
 
-abstract class MessagingMixin implements IMessageDispatcher
+abstract class MessagingMixin
 {
 	MessageDispatcher messageDispatcher;
 	
-	void send(Symbol name, [dynamic data])
+	void sendMessage(Symbol name, [dynamic data])
 	{
 		messageDispatcher.send(name, data);
 	}
 
-	void addListener(Symbol name, MessageHandlerFunction handler, [int order = 0])
+	void addMessageListener(Symbol name, MessageHandlerFunction handler, [int order = 0])
 	{
 		messageDispatcher.addListener(name, handler, order);
 	}
 	
-	void removeListener(Symbol name, Function handler)
+	void removeMessageListener(Symbol name, Function handler)
 	{
 		messageDispatcher.removeListener(name, handler);
 	}
   	
-	void removeAllListeners(Symbol name)
+	void removeAllMessageListeners(Symbol name)
 	{
 		messageDispatcher.removeAllListeners(name);
 	}
 	
-	bool hasListener(Symbol name)
+	bool hasMessageListener(Symbol name)
 	{
 		return messageDispatcher.hasListener(name);
 	}
 
-	void cancel(Symbol name)
+	void cancelMessage(Symbol name)
 	{
 		messageDispatcher.cancel(name);
 	}
