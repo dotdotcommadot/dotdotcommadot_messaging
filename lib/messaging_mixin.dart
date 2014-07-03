@@ -2,7 +2,7 @@ part of dotdotcommadot_messaging;
 
 abstract class MessagingMixin
 {
-	MessageDispatcher messageDispatcher;
+	final MessageDispatcher messageDispatcher = new MessageDispatcher();
 	
 	void sendMessage(Symbol name, [dynamic data])
 	{
