@@ -9,3 +9,4 @@ part "i_message_dispatcher.dart";
 part "message.dart";
 part "message_handler.dart";
 part "message_mapping.dart";
+part "messaging_mixin.dart";
