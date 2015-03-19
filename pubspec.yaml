@@ -1,5 +1,5 @@
 name: dotdotcommadot_messaging
-version: 0.0.1
+version: 0.0.2
 description: A simple messaging framework for Google Dart
 dev_dependencies:
   unittest: any
