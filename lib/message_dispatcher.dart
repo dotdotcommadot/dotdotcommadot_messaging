@@ -62,7 +62,8 @@ class MessageDispatcher implements IMessageDispatcher
   
   void _addHandlerToMapping(MessageMapping mapping, MessageHandlerFunction handler, [int order = 0])
   {
-    mapping.addHandler(handler, order);
+  	if (!mapping.hasHandler(handler))
+			mapping.addHandler(handler, order);
   }
   
   void _removeHandlerFromMapping(MessageMapping mapping, Function handler)

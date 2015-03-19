@@ -20,6 +20,8 @@ class MessageMapping
 	
 	bool get hasHandlers => (_handlers != null) && _handlers.length > 0;
 	
+	bool hasHandler(MessageHandlerFunction handler) => _handlers.where((H) => H.handler == handler).length > 0;
+	
   //-----------------------------------
   //
   // Constructor
@@ -34,18 +36,18 @@ class MessageMapping
   //
   //-----------------------------------
 	
-	addHandler(MessageHandlerFunction handler, [int order = 0])
+	void addHandler(MessageHandlerFunction handler, [int order = 0])
 	{
 		_handlers.add(new MessageHandler(handler, order));
 		_handlers.sort((MessageHandler x, MessageHandler y) => x.order.compareTo(y.order));
 	}
 	
-	removeHandler(Function handler)
+	void removeHandler(Function handler)
 	{
 		_handlers.remove(handler);
 	}
 	
-	send(dynamic data)
+	void send(dynamic data)
 	{
 		_handlers.forEach((MessageHandler handler)
 		{
@@ -56,7 +58,7 @@ class MessageMapping
 		_isCancelled = false;
 	}
 	
-	cancel()
+	void cancel()
 	{
 		_isCancelled = true;
 	}
