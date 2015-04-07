@@ -66,14 +66,14 @@ class MessageDispatcher implements IMessageDispatcher
 			mapping.addHandler(handler, order);
   }
   
-  void _removeHandlerFromMapping(MessageMapping mapping, Function handler)
+  void _removeHandlerFromMapping(MessageMapping mapping, MessageHandlerFunction handler)
   {
     mapping.removeHandler(handler);
     if (!mapping.hasHandlers)
       _messageMappings.remove(mapping);
   }
   
-  void _setupMapping(Symbol name, Function handler, [int order = 0])
+  void _setupMapping(Symbol name, MessageHandlerFunction handler, [int order = 0])
   {
     final MessageMapping mapping = new MessageMapping();
     mapping.addHandler(handler, order);

@@ -20,8 +20,6 @@ class MessageMapping
 	
 	bool get hasHandlers => (_handlers != null) && _handlers.length > 0;
 	
-	bool hasHandler(MessageHandlerFunction handler) => _handlers.where((H) => H.handler == handler).length > 0;
-	
   //-----------------------------------
   //
   // Constructor
@@ -35,6 +33,8 @@ class MessageMapping
   // Public Methods
   //
   //-----------------------------------
+	
+	bool hasHandler(MessageHandlerFunction handler) => _handlers.where((H) => H.handler == handler).length > 0;
 	
 	void addHandler(MessageHandlerFunction handler, [int order = 0])
 	{
