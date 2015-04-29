@@ -28,7 +28,7 @@ class MessageHandler
   //
   //-----------------------------------
 	
-	call(dynamic data)
+	void call(dynamic data)
 	{
 		handler(new Message(new Symbol(""), this, order, data));
 	}
