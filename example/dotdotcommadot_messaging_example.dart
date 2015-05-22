@@ -4,36 +4,36 @@ const Symbol STUFF_HAPPENING 	= const Symbol("stuffHappening");
 const Symbol STUFF_TO_TELL 		= const Symbol("stuffToTell");
 const Symbol STUFF_TO_DO 			= const Symbol("stuffToDo");
 
-IMessageDispatcher messageDispatcher = new MessageDispatcher();
+MessageDispatcher messageDispatcher = new MessageDispatcher();
 
 void main()
 {
-	messageDispatcher.addListener(STUFF_HAPPENING, onFirstHappening, 1);
-	messageDispatcher.addListener(STUFF_HAPPENING, onSecondStuffHappening, 2);
-	messageDispatcher.send(STUFF_HAPPENING, " message 1");
+	messageDispatcher.addMessageListener(STUFF_HAPPENING, onFirstHappening, 1);
+	messageDispatcher.addMessageListener(STUFF_HAPPENING, onSecondStuffHappening, 2);
+	messageDispatcher.sendMessage(STUFF_HAPPENING, " message 1");
 
-	messageDispatcher.addListener(STUFF_TO_TELL, onStuffToTell);
-	messageDispatcher.addListener(STUFF_TO_TELL, onOtherStuffToTell);
-	messageDispatcher.send(STUFF_TO_TELL, " message 2");
+	messageDispatcher.addMessageListener(STUFF_TO_TELL, onStuffToTell);
+	messageDispatcher.addMessageListener(STUFF_TO_TELL, onOtherStuffToTell);
+	messageDispatcher.sendMessage(STUFF_TO_TELL, " message 2");
 	
-	messageDispatcher.removeListener(STUFF_HAPPENING, onSecondStuffHappening);
-	messageDispatcher.send(STUFF_HAPPENING, " message 3");
+	messageDispatcher.removeMessageListener(STUFF_HAPPENING, onSecondStuffHappening);
+	messageDispatcher.sendMessage(STUFF_HAPPENING, " message 3");
 	
-	messageDispatcher.addListener(STUFF_TO_DO, onFirstStuffToDo, 1);
-	messageDispatcher.addListener(STUFF_TO_DO, onSecondStuffToDo, 2);
-	messageDispatcher.addListener(STUFF_TO_DO, onCancelledStuffToDo, 3);
-	messageDispatcher.send(STUFF_TO_DO, " message 4");
-	messageDispatcher.send(STUFF_TO_DO, " message 5");
+	messageDispatcher.addMessageListener(STUFF_TO_DO, onFirstStuffToDo, 1);
+	messageDispatcher.addMessageListener(STUFF_TO_DO, onSecondStuffToDo, 2);
+	messageDispatcher.addMessageListener(STUFF_TO_DO, onCancelledStuffToDo, 3);
+	messageDispatcher.sendMessage(STUFF_TO_DO, " message 4");
+	messageDispatcher.sendMessage(STUFF_TO_DO, " message 5");
 	
-	messageDispatcher.removeAllListeners(STUFF_HAPPENING);
-	messageDispatcher.removeAllListeners(STUFF_TO_TELL);
-	messageDispatcher.removeAllListeners(STUFF_TO_DO);
+	messageDispatcher.removeAllMessageListeners(STUFF_HAPPENING);
+	messageDispatcher.removeAllMessageListeners(STUFF_TO_TELL);
+	messageDispatcher.removeAllMessageListeners(STUFF_TO_DO);
 
-	messageDispatcher.send(STUFF_HAPPENING, " message 5");
+	messageDispatcher.sendMessage(STUFF_HAPPENING, " message 5");
 	
-	messageDispatcher.addListener(STUFF_HAPPENING, onFirstHappening, 1);
+	messageDispatcher.addMessageListener(STUFF_HAPPENING, onFirstHappening, 1);
 	
-	messageDispatcher.send(STUFF_HAPPENING, " message 5");
+	messageDispatcher.sendMessage(STUFF_HAPPENING, " message 5");
 }
 
 void onFirstHappening(Message message)
@@ -64,7 +64,7 @@ void onFirstStuffToDo(Message message)
 void onSecondStuffToDo(Message message)
 {
 	print("Second Stuff To Do" + message.data.toString());
-	messageDispatcher.cancel(STUFF_TO_DO);
+	messageDispatcher.cancelMessage(STUFF_TO_DO);
 }
 
 void onCancelledStuffToDo(Message message)

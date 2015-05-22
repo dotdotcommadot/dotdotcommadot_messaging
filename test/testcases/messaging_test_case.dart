@@ -2,7 +2,7 @@ part of dotdotcommadot_messaging_test;
 
 messagingTestCase()
 {
-	IMessageDispatcher messageDispatcher;
+	MessageDispatcher messageDispatcher;
 	const Symbol STUFF_HAPPENING = const Symbol("stuffHappening");
 	
 	setUp(() 
@@ -19,15 +19,15 @@ messagingTestCase()
 	{
 		Function callback = expectAsync((Message message){ }, count: 1);
 		
-		messageDispatcher.addListener(STUFF_HAPPENING, callback);
-		messageDispatcher.send(STUFF_HAPPENING);
+		messageDispatcher.addMessageListener(STUFF_HAPPENING, callback);
+		messageDispatcher.sendMessage(STUFF_HAPPENING);
 	});
 
 	test('Messaging Data', () 
 	{
 		Function callback = (Message message){ expect(message.data, equals(" Message One")); };
 		
-		messageDispatcher.addListener(STUFF_HAPPENING, callback);
-		messageDispatcher.send(STUFF_HAPPENING, " Message One");
+		messageDispatcher.addMessageListener(STUFF_HAPPENING, callback);
+		messageDispatcher.sendMessage(STUFF_HAPPENING, " Message One");
 	});
 }

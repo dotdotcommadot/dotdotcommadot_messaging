@@ -10,8 +10,16 @@ class MessageHandler
   //
   //-----------------------------------
 	
+  //-----------------------------------
+  // Handler
+  //-----------------------------------
+	
 	MessageHandlerFunction handler;
 
+  //-----------------------------------
+  // Order
+  //-----------------------------------
+	
 	int order = 0;
 	
   //-----------------------------------
@@ -30,6 +38,6 @@ class MessageHandler
 	
 	void call(dynamic data)
 	{
-		handler(new Message(new Symbol(""), this, order, data));
+		handler(new Message(const Symbol(""), this, order, data));
 	}
 }
